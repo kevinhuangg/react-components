@@ -9,19 +9,19 @@ class GroceryListItem extends React.Component {
     });
     //console.log(this.state.done)
   }
-  onListItemHover() {
+  toggleHover() {
     this.setState({
-      hover: true
+      hover: !this.state.hover
     });
   }
 
   render() {
     var style = {
       textDecoration: this.state.bought ? 'line-through' : 'none',
-      fontWeight: this.state.hover ? 'bold' : 'none' 
+      fontWeight: this.state.hover ? 'bold' : '400' 
     }
     return (
-      <li style={style} onClick={this.onListItemClick.bind(this)} onmouseover={this.onListItemHover.bind(this)}>
+      <li style={style} onClick={this.onListItemClick.bind(this)} onMouseEnter={this.toggleHover.bind(this)} onMouseLeave={this.toggleHover.bind(this)}>
         {this.props.items}
       </li>
     );
